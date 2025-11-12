@@ -154,44 +154,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
     
-    const contactData = [
-        {
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>`,
-            title: "Email",
-            value: "66040233122@udru.ac.th",
-            href: "#"
-        },
-        {
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" /></svg>`,
-            title: "GitHub",
-            value: "https://github.com/SolightzZ",
-            href: "https://github.com/SolightzZ" 
-        },
-        {
-            icon: "",
-            title: "Facebook",
-            value: "https://www.facebook.com/panitijahemz/",
-            href: "https://www.facebook.com/panitijahemz/" 
-        },
-        {
-            icon: "",
-            title: "Phone",
-            value: "0621036516",
-            href: "#" 
-        },
-        {
-            icon: "",
-            title: "Line",
-            value: "introfxx2",
-            href: "#" 
-        },
-        {
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>`,
-            title: "ที่อยู่",
-            value: "อ.เมือง, จ.อุดรธานี",
-            href: "#"
-        }
-    ];
+   const contactData = [
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>`,
+                    title: "Email",
+                    value: "66040233122@udru.ac.th",
+                    href: "mailto:66040233122@udru.ac.th" 
+                },
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" /></svg>`,
+                    title: "GitHub",
+                    value: "https://github.com/SolightzZ",
+                    href: "https://github.com/SolightzZ" 
+                },
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0">
+                        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+                      </svg>`,
+                    title: "Facebook",
+                    value: "https://www.facebook.com/panitijahemz/",
+                    href: "https://www.facebook.com/panitijahemz/" 
+                },
+                {
+
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.83-1.464-5.17-3.804-6.633-6.633l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                      </svg>`,
+                    title: "Phone",
+                    value: "0621036516",
+                    href: "tel:0621036516" 
+                },
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0">
+                        <path d="M21.12,10.33A5.78,5.78,0,0,0,9.55,10.33c0,3,.23,3.82.44,4.5H10c-.08,0-.17.02-.24.03-3.9,0-7.07,2.2-7.07,4.92,0,.5.4.9.9.9h.03c.02,0,.04,0,.06-.02C4.1,19.3,6.6,17.5,9.8,17.5c.34,0,.68.03,1.02.08.35.62.77,1.17,1.25,1.65.2.2.46.3.72.3s.52-.1.72-.3c.48-.48.9-1.03,1.25-1.65.34-.05.68-.08,1.02-.08,3.2,0,5.7-1.8,6.16-2.25.02-.02.04-.02.06-.02h.03c.5,0,.9-.4.9-.9,0-2.73-3.17-4.93-7.07-4.93-.07-.01-.16-.03-.24-.03h-.02C20.89,14.15,21.12,13.33,21.12,10.33Z" />
+                      </svg>`,
+                    title: "Line",
+                    value: "introfxx2",
+                    href: "#" 
+                },
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>`,
+                    title: "ที่อยู่",
+                    value: "อ.เมือง, จ.อุดรธานี",
+                    href: "#"
+                }
+            ];
 
 
 
