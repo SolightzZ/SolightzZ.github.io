@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - สมชาย เก่งมาก (Typing Animation)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 3. ธีมสี "Twilight" */
+        :root {
+            --primary-color: #06b6d4;  /* Tailwind 'cyan-500' */
+            --secondary-color: #94a3b8; /* Tailwind 'slate-400' */
+            --bg-color: #0f172a;       /* Tailwind 'slate-900' */
+            --card-bg: #1e293b;       /* Tailwind 'slate-800' */
+            --text-color: #e2e8f0;     /* Tailwind 'slate-200' */
+            --border-color: #334155;   /* Tailwind 'slate-700' */
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Prompt', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0; padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+        
+        .section > h2:first-of-type {
+            margin-top: 0;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #22d3ee;
+            text-decoration: none;
+        }
+
+        .nav-link.active {
+            background-color: var(--primary-color) !important;
+            color: #ffffff !important;
+        }
+        
+        /* 4. CSS สำหรับ Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin-top: 20px;
+        }
+        .timeline-item {
+            position: relative;
+            padding: 10px 0 20px 30px;
+            border-left: 2px solid var(--primary-color);
+        }
+        .timeline-item:last-child {
+            border-left: 2px solid transparent;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -11px;
+            top: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            border: 3px solid var(--primary-color);
+        }
+        .timeline-date {
+            font-style: italic;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .timeline-item h4 {
+            color: var(--text-color);
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+        .timeline-item p {
+            color: var(--secondary-color);
+        }
+
+        /* 5. สไตล์สำหรับรูปโปรไฟล์ 1:1 */
+        .profile-wrapper {
+            width: 150px; 
+            height: 150px;
+            position: relative; 
+            flex-shrink: 0; 
+            border-radius: 0.5rem; /* rounded-lg */
+            border: 4px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden; 
+        }
+        .profile-wrapper img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+        
+        @media (min-width: 768px) { 
+            .profile-wrapper {
+                width: 200px; 
+                height: 200px;
+            }
+        }
+        @media (max-width: 767px) { 
+            #intro-box-container {
+                flex-direction: column; 
+                text-align: center;
+                gap: 1.5rem; 
+            }
+            .profile-wrapper {
+                margin: 0 auto; 
+            }
+            #intro h2 {
+                text-align: center; 
+            }
+        }
+
+        /* (ลบแล้ว) AI Animation (pulse-glow) */
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav id="header-nav" class="sticky top-0 z-50 w-full p-4">
+        <div class="flex items-center justify-between max-w-6xl mx-auto px-6 py-3 bg-slate-800/70 backdrop-blur-lg rounded-full border border-slate-700/50 shadow-lg">
+            <a href="#intro" class="flex-shrink-0">
+                <span class="font-bold text-xl text-white hidden sm:inline">สมชาย เก่งมาก</span>
+                <span class="font-bold text-xl text-white sm:hidden">SK</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-1">
+                <a href="#intro" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">แนะนำตัว</a>
+                <a href="#skills" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">ทักษะ</a>
+                <a href="#projects" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">ผลงาน</a>
+                <a href="#education" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">การศึกษา</a>
+                <a href="#activities" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">กิจกรรม</a>
+                <a href="#contact" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">ติดต่อ</a>
+                <a href="#career" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">เป้าหมาย</a>
+            </div>
+            <div class="md:hidden">
+                <button id="nav-toggle" class="text-white p-2 rounded-full hover:bg-slate-700" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-menu"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-close hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+        </div>
+        <div id="navbar" class="hidden md:hidden max-w-6xl mx-auto mt-2 px-4 py-3 bg-slate-800/80 backdrop-blur-lg rounded-2xl border border-slate-700/50 shadow-lg">
+            <nav class="flex flex-col space-y-2">
+                <a href="#intro" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">แนะนำตัว</a>
+                <a href="#skills" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">ทักษะ</a>
+                <a href="#projects" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">ผลงาน</a>
+                <a href="#education" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">การศึกษา</a>
+                <a href="#activities" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">กิจกรรม</a>
+                <a href="#contact" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">ติดต่อ</a>
+                <a href="#career" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">เป้าหมาย</a>
+            </nav>
+        </div>
+    </nav>
+    
+    <div class="container space-y-6">
+        
+        <section id="intro" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-12 h-[400px] flex items-center">
+            <div id="intro-box-container" class="flex items-center gap-6 md:gap-8 w-full"> <div class="profile-wrapper">
+                    <img src="https://via.placeholder.com/200/06b6d4/ffffff?text=Profile+Pic" 
+                         alt="รูปโปรไฟล์">
+                </div>
+                <div class="intro-content flex-grow">
+                    <h2 class="text-white !color-white">แนะนำตัว (Introduction)</h2>
+                    <p class="text-slate-300 text-lg mt-4">
+                        สวัสดีครับ! ผมเป็นนักศึกษาชั้นปีที่ 3 ที่หลงใหลในการแก้ปัญหาด้วยเทคโนโลยี 
+                        ปัจจุบันกำลังมุ่งเน้นการเรียนรู้และสร้างโปรเจกต์ที่เกี่ยวข้องกับความสนใจเฉพาะทางด้าน: 
+                        <span id="typing-text" class="font-bold text-cyan-400"></span>
+                    </p>
+                    <p class="text-slate-400 mt-2">
+                        มีความสุขที่ได้เรียนรู้สิ่งใหม่ๆ และพร้อมที่จะนำความรู้ไปประยุกต์ใช้ในโลกการทำงานจริง
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-8">
+            <h2 class="text-white">ทักษะ (Skills)</h2>
+            <div id="skills-container" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                </div>
+        </section>
+
+        <section id="projects" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-8">
+            <h2 class="text-white">ผลงานที่ผ่านมา (Projects)</h2>
+            <div id="project-grid" class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+        </section>
+
+        <section id="education" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-8">
+            <h2 class="text-white">การศึกษา (Education)</h2>
+            <div id="education-timeline" class="timeline">
+                </div>
+        </section>
+
+        <section id="activities" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-8">
+            <h2 class="text-white">กิจกรรมและผลงานอื่น ๆ (Activities)</h2>
+            <div id="activities-timeline" class="timeline">
+                </div>
+        </section>
+
+        <section id="contact" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-8">
+            <h2 class="text-white">ติดต่อ (Contact)</h2>
+            <div id="contact-container" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                </div>
+        </section>
+        
+        <section id="career" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-8">
+            <h2 class="text-white">เป้าหมายในอนาคต (Career Interest)</h2>
+            <p class="mt-6 text-lg text-slate-300">
+                ผมมุ่งหวังที่จะเป็น <strong class="text-cyan-400">Software Engineer</strong> หรือ <strong class="text-cyan-400">Data Scientist</strong> ที่สามารถสร้างสรรค์นวัตกรรมที่ช่วยแก้ปัญหาที่ซับซ้อน 
+                และสนใจเข้าร่วมงานกับองค์กรที่เปิดโอกาสให้เรียนรู้และเติบโต
+            </p>
+        </section>
+
+    </div>
+
+    <footer class="text-center p-8 mt-6 text-slate-400">
+        <p>&copy; 2025 สมชาย เก่งมาก. สร้างด้วยความตั้งใจ</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+// --- 4. DATA SECTION ( 🎉🎉 นี่คือส่วนที่คุณต้องแก้ไข 🎉🎉 ) ---
+//
+// -----------------------------------------------------------------
+
+            // ( ★★★ ใหม่ ★★★ ) เพิ่ม Array สำหรับ Typing Effect
+            const typingInterests = ['AI & Machine Learning', 'Web Development', 'Data Science'];
+
+            // (คงเดิม) โลโก้สำหรับ "หมวดหมู่"
+            const skillLogos = {
+                "Programming": `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>`,
+                "AI & Data": `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-12a2.25 2.25 0 01-2.25-2.25V3m12.75 0v6.75a2.25 2.25 0 01-2.25 2.25H9A2.25 2.25 0 016.75 9.75V3m12.75 0V3M6.75 9.75V3m0 0v6.75" /></svg>`,
+                "Tools & Others": `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83M11.42 15.17l.029-.029c.353-.353.693-.717 1.001-1.091l.029-.029M11.42 15.17L11.42 15.17ZM11.42 15.17L10.5 16.5l-1.08-1.08l-.029-.029m-2.25-2.25L9 12.75l-1.08-1.08l-.029-.029m5.625 5.625c.353-.353.717-.693 1.091-1.001L18 12.75l-1.08-1.08l-.029-.029m-2.25-2.25c-.353.353-.717.693-1.091 1.001L15 11.25l-1.08 1.08l-.029.029m-2.25 2.25L9 12.75l-1.08-1.08l-.029-.029M9 12.75l1.08-1.08l.029-.029m5.625 5.625l-1.08 1.08l-.029.029m-5.625-5.625L9 12.75l1.08 1.08l.029.029" /></svg>`,
+                "Soft Skills": `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5 0a9.094 9.094 0 013.741-.479 3 3 0 01-4.682-2.72M12 8.25a4.125 4.125 0 110 8.25 4.125 4.125 0 010-8.25zM12 15a.75.75 0 01-.75-.75v-1.5a.75.75 0 011.5 0v1.5A.75.75 0 0112 15z" /></svg>`
+            };
+            const defaultSkillLogo = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`;
+
+            const skillsData = {
+                "Programming": ["Python", "Java", "HTML/CSS", "JavaScript (ES6+)", "SQL"],
+                "AI & Data": ["TensorFlow", "scikit-learn", "Power BI", "Pandas"],
+                "Tools & Others": ["Git", "VS Code", "Figma", "Docker", "Agile/Scrum"],
+                "Soft Skills": ["การสื่อสาร", "การทำงานเป็นทีม", "การแก้ปัญหา", "การเรียนรู้เร็ว"]
+            };
+
+            const individualSkillLogos = {
+                "Python": "https://raw.githubusercontent.com/HighAmbition211/HighAmbition211/auxiliary/languages/python.svg", 
+                "Java": null,
+                "HTML/CSS": null,
+                "JavaScript (ES6+)": null,
+                "SQL": null,
+                "TensorFlow": null,
+                "scikit-learn": null,
+                "Power BI": null,
+                "Pandas": null,
+                "Git": null,
+                "VS Code": null,
+                "Figma": null,
+                "Docker": null,
+                "Agile/Scrum": null,
+                "การสื่อสาร": null,
+                "การทำงานเป็นทีม": null,
+                "การแก้ปัญหา": null,
+                "การเรียนรู้เร็ว": null
+            };
+
+            const projectsData = [
+                {
+                    image: "https://via.placeholder.com/300x180/06b6d4/ffffff?text=Web+Project",
+                    title: "ระบบจองห้องประชุมออนไลน์",
+                    description: "เว็บแอปพลิเคชันสำหรับจองห้องประชุมออนไลน์ ทั้งในรายวิชาและนอกห้องเรียน ใช้ React และ Firebase",
+                    githubUrl: "#",
+                    demoUrl: "#"
+                },
+                {
+                    image: "https://via.placeholder.com/300x180/06b6d4/ffffff?text=Data+Project",
+                    title: "AI ทำนายโรคเบาหวาน",
+                    description: "โมเดล Machine Learning (ใช้ scikit-learn) เพื่อวิเคราะห์และทำนายโรคเบาหวานจากข้อมูลสุขภาพ",
+                    githubUrl: "#",
+                    demoUrl: null 
+                },
+                {
+                    image: "https://via.placeholder.com/300x180/06b6d4/ffffff?text=Data+Viz",
+                    title: "Dashboard วิเคราะห์ข้อมูลร้านกาแฟ",
+                    description: "วิเคราะห์ข้อมูลยอดขายและสร้าง Dashboard ด้วย Power BI เพื่อแสดงข้อมูลเชิงลึกของสาขาและเมนูยอดนิยม",
+                    githubUrl: null,
+                    demoUrl: "#"
+                }
+            ];
+
+            const educationData = [
+                {
+                    date: "2566 - ปัจจุบัน",
+                    title: "คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์",
+                    description: "มหาวิทยาลัยราชภัฏอุดรธานี (GPAX: 3.xx)"
+                },
+                {
+                    date: "2563 - 2566",
+                    title: "มัธยมศึกษาตอนปลาย (สายวิทย์-คณิต)",
+                    description: "โรงเรียน... (ตัวอย่าง)"
+                }
+            ];
+            
+            const activitiesData = [
+                {
+                    date: "2025 (ตัวอย่าง)",
+                    title: "เข้าร่วมแข่งขัน UDRU Hackathon 2025",
+                    description: "ได้รับประสบการณ์การทำงานเป็นทีมและพัฒนาระบบภายใต้ความกดดัน"
+                },
+                {
+                    date: "2024 (ตัวอย่าง)",
+                    title: "ได้รับรางวัลชนะเลิศโครงงานด้าน IoT",
+                    description: "จากงานประกวดนวัตกรรม... (ตัวอย่าง)"
+                },
+                {
+                    date: "2024 (ตัวอย่าง)",
+                    title: "ผู้เข้าร่วมอบรม 'AI for Beginners by Microsoft'",
+                    description: "เรียนรู้พื้นฐานการทำงานของ AI และ Machine Learning"
+                }
+            ];
+            
+            const contactData = [
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>`,
+                    title: "Email",
+                    value: "your.email@gmail.com",
+                    href: "mailto:your.email@gmail.com"
+                },
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" /></svg>`,
+                    title: "GitHub",
+                    value: "github.com/yourname",
+                    href: "#" 
+                },
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.25 6.5 1.75 1.75 0 016.5 8.25zM19 19h-3v-4.75c0-1.12-.02-2.5-1.5-2.5s-1.75 1.2-1.75 2.4V19h-3v-9h2.9v1.3h.04c.4-.7 1.4-1.4 2.8-1.4 3 0 3.6 2 3.6 4.6V19z" /></svg>`,
+                    title: "LinkedIn",
+                    value: "linkedin.com/in/yourname",
+                    href: "#" 
+                },
+                {
+                    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-cyan-400 flex-shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>`,
+                    title: "ที่อยู่",
+                    value: "อ.เมือง, จ.อุดรธานี",
+                    href: "#"
+                }
+            ];
+
+
+// --- (สิ้นสุด DATA SECTION) ---
+// 
+// โค้ดด้านล่างนี้คือระบบจัดการ
+// -----------------------------------------------------------------
+
+            // ( ★★★ ใหม่ ★★★ ) 1. Typing Effect
+            const typingTextElement = document.getElementById('typing-text');
+            if (typingTextElement && typingInterests.length > 0) {
+                let interestIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+
+                function type() {
+                    const currentInterest = typingInterests[interestIndex];
+                    if (isDeleting) {
+                        typingTextElement.textContent = currentInterest.substring(0, charIndex - 1);
+                        charIndex--;
+                    } else {
+                        typingTextElement.textContent = currentInterest.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
+                    if (!isDeleting && charIndex === currentInterest.length) {
+                        isDeleting = true;
+                        setTimeout(type, 2000); // หยุด 2 วิ ก่อนลบ
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        interestIndex = (interestIndex + 1) % typingInterests.length;
+                        setTimeout(type, 500); // หยุด 0.5 วิ ก่อนพิมพ์คำใหม่
+                    } else {
+                        const typeSpeed = isDeleting ? 75 : 150;
+                        setTimeout(type, typeSpeed);
+                    }
+                }
+                type(); // เริ่ม
+            }
+
+            // --- 2. Hamburger Menu Logic ---
+            const navToggle = document.getElementById('nav-toggle');
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const iconMenu = navToggle ? navToggle.querySelector('.icon-menu') : null;
+            const iconClose = navToggle ? navToggle.querySelector('.icon-close') : null;
+
+            if (navToggle && navbar && iconMenu && iconClose) {
+                navToggle.addEventListener('click', () => {
+                    navbar.classList.toggle('hidden');
+                    iconMenu.classList.toggle('hidden');
+                    iconClose.classList.toggle('hidden');
+                });
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (!navbar.classList.contains('hidden')) {
+                            navbar.classList.add('hidden');
+                            iconMenu.classList.remove('hidden');
+                            iconClose.classList.add('hidden');
+                        }
+                    });
+                });
+            }
+            
+            // --- 3. Scrollspy (Highlight active nav link) ---
+            const sections = document.querySelectorAll('.section');
+            const allNavLinks = document.querySelectorAll('.nav-link[href^="#"]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        allNavLinks.forEach(link => link.classList.remove('active'));
+                        const activeLinks = document.querySelectorAll(`.nav-link[href="#${id}"]`);
+                        activeLinks.forEach(link => link.classList.add('active'));
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.3, 
+                rootMargin: "-80px 0px -50% 0px"
+            });
+            sections.forEach(section => observer.observe(section));
+            
+            // --- 4. Smooth Scrolling ---
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        const headerOffset = document.getElementById('header-nav').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // --- 5. Content Renderers ---
+            
+            // (คงเดิม) Render Skills
+            function renderSkills(data) {
+                const container = document.getElementById('skills-container');
+                if (!container) return;
+                let html = '';
+                
+                for (const category in data) {
+                    const logoSvg = skillLogos[category] || defaultSkillLogo;
+                    const skillsList = data[category]; 
+                    
+                    html += `
+                        <div class="skill-box bg-slate-800/50 rounded-xl border border-slate-700/50 p-5 shadow-lg">
+                            <div class="flex items-center gap-4 mb-4">
+                                ${logoSvg}
+                                <h3 class="text-2xl font-semibold text-cyan-400">${category}</h3>
+                            </div>
+                            <ul class="flex flex-wrap gap-2">
+                                ${skillsList.map(skill => {
+                                    const logoUrl = individualSkillLogos[skill];
+                                    
+                                    if (logoUrl) {
+                                        return `
+                                        <li class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
+                                            <img src="${logoUrl}" alt="${skill} logo" class="w-4 h-4 object-contain">
+                                            <span>${skill}</span>
+                                        </li>
+                                        `;
+                                    } else {
+                                        return `
+                                        <li class="bg-slate-700 text-slate-200 px-4 py-1 rounded-full text-sm font-medium">
+                                            ${skill}
+                                        </li>
+                                        `;
+                                    }
+                                }).join('')}
+                            </ul>
+                        </div>
+                    `;
+                }
+                container.innerHTML = html;
+            }
+
+            // (คงเดิม) Render Projects
+            function renderProjects(data) {
+                const grid = document.getElementById('project-grid');
+                if (!grid) return;
+                let html = '';
+                data.forEach(project => {
+                    const githubLink = project.githubUrl ? `<a href="${project.githubUrl}" target="_blank" class="font-medium text-cyan-400 hover:text-cyan-300">GitHub</a>` : '';
+                    const demoLink = project.demoUrl ? `<a href="${project.demoUrl}" target="_blank" class="font-medium text-cyan-400 hover:text-cyan-300">Demo</a>` : '';
+                    
+                    html += `
+                        <article class="project-card bg-slate-900/50 rounded-lg overflow-hidden border border-slate-700 shadow-lg flex flex-col transition-all duration-300 hover:shadow-cyan-500/20 hover:border-slate-600">
+                            <img src="${project.image}" alt="${project.title}" class="w-full h-48 object-cover">
+                            <div class="p-5 flex flex-col flex-grow">
+                                <h4 class="text-xl font-bold text-white mb-2">${project.title}</h4>
+                                <p class="text-slate-400 flex-grow mb-4">${project.description}</p>
+                                <div class="project-links flex items-center gap-4 mt-auto">
+                                    ${githubLink}
+                                    ${demoLink}
+                                </div>
+                            </div>
+                        </article>
+                    `;
+                });
+                grid.innerHTML = html;
+            }
+
+            // (คงเดิม) Render Timelines (Reusable)
+            function renderTimeline(data, containerId) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                let html = '';
+                data.forEach(item => {
+                    html += `
+                        <div class="timeline-item">
+                            <span class="timeline-date">${item.date}</span>
+                            <h4 class="text-lg font-semibold">${item.title}</h4>
+                            <p>${item.description}</p>
+                        </div>
+                    `;
+                });
+                container.innerHTML = html;
+            }
+            
+            // (คงเดิม) Render Contact (สร้าง Box ให้แต่ละรายการ)
+            function renderContact(data) {
+                const container = document.getElementById('contact-container');
+                if (!container) return;
+                let html = '';
+                data.forEach(item => {
+                    const linkAttributes = (item.href === "#" || item.href.startsWith('mailto:')) 
+                        ? `href="${item.href}"` 
+                        : `href="${item.href}" target="_blank" rel="noopener noreferrer"`;
+
+                    html += `
+                        <a ${linkAttributes} class="contact-box block bg-slate-800/50 rounded-xl border border-slate-700/50 p-5 shadow-lg transition-all duration-300 hover:border-cyan-500/50 hover:shadow-cyan-500/20 hover:-translate-y-1">
+                            <div class="flex items-center gap-4">
+                                ${item.icon} <div>
+                                    <h4 class="text-lg font-semibold text-cyan-400">${item.title}</h4>
+                                    <p class="text-slate-300 break-words">${item.value}</p>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                });
+                container.innerHTML = html;
+            }
+
+            // --- เรียกใช้ Renderers ทั้งหมด ---
+            renderSkills(skillsData);
+            renderProjects(projectsData);
+            renderTimeline(educationData, 'education-timeline');
+            renderTimeline(activitiesData, 'activities-timeline');
+            renderContact(contactData);
+
+        });
+    </script>
+
+</body>
+</html>

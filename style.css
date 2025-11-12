@@ -1,0 +1,127 @@
+:root {
+    --primary-color: #06b6d4; 
+    --secondary-color: #94a3b8;
+    --bg-color: #0f172a;     
+    --card-bg: #1e293b; 
+    --text-color: #e2e8f0; 
+    --border-color: #334155; 
+}
+
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Prompt', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0; padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.section > h2:first-of-type {
+    margin-top: 0;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #22d3ee;
+    text-decoration: none;
+}
+
+.nav-link.active {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin-top: 20px;
+}
+.timeline-item {
+    position: relative;
+    padding: 10px 0 20px 30px;
+    border-left: 2px solid var(--primary-color);
+}
+.timeline-item:last-child {
+    border-left: 2px solid transparent;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -11px;
+    top: 12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 3px solid var(--primary-color);
+}
+.timeline-date {
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+.timeline-item h4 {
+    color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+.timeline-item p {
+    color: var(--secondary-color);
+}
+
+.profile-wrapper {
+    width: 150px; 
+    height: 150px;
+    position: relative; 
+    flex-shrink: 0; 
+    border-radius: 0.5rem;
+    border: 4px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    overflow: hidden; 
+}
+.profile-wrapper img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+@media (min-width: 768px) { 
+    .profile-wrapper {
+        width: 200px; 
+        height: 200px;
+    }
+}
+@media (max-width: 767px) { 
+    #intro-box-container {
+        flex-direction: column; 
+        text-align: center;
+        gap: 1.5rem; 
+    }
+    .profile-wrapper {
+        margin: 0 auto; 
+    }
+    #intro h2 {
+        text-align: center; 
+    }
+}
