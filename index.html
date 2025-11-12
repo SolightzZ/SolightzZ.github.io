@@ -1,14 +1,393 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Paniti Jahem</title>
-  </head>
-  <body>
-    <h1>My name is Paiti jahem</h1>
-    <h2>First pake from Gibhub</h2>
-    <br />
-    <a href="https://www.youtube.com/"> ❗ Youtube </a>
-  </body>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - [ใส่ชื่อของคุณ]</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Sarabun', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    
+    <style>
+        .nav-menu.hidden { display: none; }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 250px;
+                height: 100vh;
+                /* ใช้สีขาวโปร่งแสง */
+                background-color: rgba(255, 255, 255, 0.95);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 5rem;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: right 0.4s ease-in-out;
+            }
+            .nav-menu.nav-open {
+                right: 0;
+            }
+        }
+        
+        /* Animation ของปุ่ม Hamburger */
+        .nav-toggle.nav-open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-toggle.nav-open span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-toggle.nav-open span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <header class="sticky top-0 z-50 w-full backdrop-blur-lg bg-white/75 border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <div class.="header-content">
+                <h1 class="text-xl font-bold text-slate-900">สมชาย เก่งมาก (Somchai Kengmak)</h1>
+                <p class="text-sm text-slate-600">นักศึกษาปี 3 | คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์</p>
+            </div>
+            
+            <button class="md:hidden z-50" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="block w-6 h-0.5 bg-slate-800 transition-all duration-300 ease-in-out m-1.5"></span>
+                <span class="block w-6 h-0.5 bg-slate-800 transition-all duration-300 ease-in-out m-1.5"></span>
+                <span class="block w-6 h-0.5 bg-slate-800 transition-all duration-300 ease-in-out m-1.5"></span>
+            </button>
+            
+            <nav class="hidden md:flex flex-row gap-2 items-center nav-menu" id="navbar">
+                <a href="#intro" class="nav-link px-4 py-2 rounded-full text-slate-700 hover:text-white hover:bg-blue-600 font-medium transition-colors">แนะนำตัว</a>
+                <a href="#skills" class="nav-link px-4 py-2 rounded-full text-slate-700 hover:text-white hover:bg-blue-600 font-medium transition-colors">ทักษะ</a>
+                <a href="#projects" class="nav-link px-4 py-2 rounded-full text-slate-700 hover:text-white hover:bg-blue-600 font-medium transition-colors">ผลงาน</a>
+                <a href="#education" class="nav-link px-4 py-2 rounded-full text-slate-700 hover:text-white hover:bg-blue-600 font-medium transition-colors">การศึกษา</a>
+                <a href="#activities" class="nav-link px-4 py-2 rounded-full text-slate-700 hover:text-white hover:bg-blue-600 font-medium transition-colors">กิจกรรม</a>
+                <a href="#contact" class="nav-link px-4 py-2 rounded-full text-slate-700 hover:text-white hover:bg-blue-600 font-medium transition-colors">ติดต่อ</a>
+                <a href="#career" class="nav-link px-4 py-2 rounded-full text-slate-700 hover:text-white hover:bg-blue-600 font-medium transition-colors">เป้าหมาย</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto p-6">
+
+        <section id="intro" class="section bg-white mt-6 p-8 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <img src="https://via.placeholder.com/150/0056b3/ffffff?text=Profile+Pic" 
+                 alt="รูปโปรไฟล์ สมชาย เก่งมาก" 
+                 class="w-36 h-36 rounded-full object-cover border-4 border-slate-200 flex-shrink-0">
+            
+            <div class="text-center md:text-left">
+                <h2 class="text-3xl font-bold text-blue-600 border-none p-0 m-0">
+                    1. แนะนำตัว (Introduction / Profile)
+                </h2>
+                
+                <p class="text-lg text-slate-700 mt-4">
+                    สวัสดีครับ! ผมเป็นนักศึกษาชั้นปีที่ 3 ที่หลงใหลในการแก้ปัญหาด้วยเทคโนโลยี 
+                    ปัจจุบันกำลังมุ่งเน้นการเรียนรู้และสร้างโปรเจกต์ที่เกี่ยวข้องกับความสนใจเฉพาะทางด้าน: 
+                    <span id="typing-text" class="font-semibold text-blue-600"></span>
+                </p>
+                <p class="text-lg text-slate-700 mt-2">
+                    มีความสุขที่ได้เรียนรู้สิ่งใหม่ๆ และพร้อมที่จะนำความรู้ไปประยุกต์ใช้ในโลกการทำงานจริง
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="section bg-white mt-6 p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-blue-600 border-b border-slate-200 pb-4 mb-8">
+                2. ทักษะ (Skills)
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h3 class="text-xl font-semibold mb-4 text-slate-800">Programming</h3>
+                    <ul class="flex flex-wrap gap-2">
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">Python</li>
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">Java</li>
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">HTML/CSS</li>
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">JavaScript</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h3 class="text-xl font-semibold mb-4 text-slate-800">AI & Data</h3>
+                    <ul class="flex flex-wrap gap-2">
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">TensorFlow</li>
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">scikit-learn</li>
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">Power BI</li>
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">SQL</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h3 class="text-xl font-semibold mb-4 text-slate-800">Tools</h3>
+                    <ul class="flex flex-wrap gap-2">
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">Git</li>
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">VS Code</li>
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">Figma</li>
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">Google Colab</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                    <h3 class="text-xl font-semibold mb-4 text-slate-800">Soft Skills</h3>
+                    <ul class="flex flex-wrap gap-2">
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">การสื่อสาร</li>
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">การทำงานเป็นทีม</li>
+                        <li class="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm font-medium">การแก้ปัญหา</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section bg-white mt-6 p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-blue-600 border-b border-slate-200 pb-4 mb-8">
+                3. ผลงานที่ผ่านมา (Projects / Portfolio)
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <article class="border border-slate-200 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <img src="https://via.placeholder.com/300x180/0056b3/ffffff?text=Web+Project" alt="รูปโปรเจกต์ 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-slate-900 mb-2">ระบบจองห้องประชุมออนไลน์</h4>
+                        <p class="text-slate-600 mb-4 h-24">เว็บแอปพลิเคชันสำหรับจองห้องประชุมออนไลน์ ทั้งในรายวิชาและนอกห้องเรียน</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="font-medium text-blue-600 hover:underline">GitHub Repository</a>
+                            <a href="#" target="_blank" class="font-medium text-blue-600 hover:underline ml-4">Demo</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="border border-slate-200 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <img src="https://via.placeholder.com/300x180/0056b3/ffffff?text=Data+Project" alt="รูปโปรเจกต์ 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-slate-900 mb-2">AI ทำนายโรคเบาหวาน</h4>
+                        <p class="text-slate-600 mb-4 h-24">โมเดล Machine Learning (ใช้ scikit-learn) เพื่อวิเคราะห์และทำนายโรคเบาหวาน</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="font-medium text-blue-600 hover:underline">GitHub Repository</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="border border-slate-200 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <img src="https://via.placeholder.com/300x180/0056b3/ffffff?text=Data+Viz" alt="รูปโปรเจกต์ 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-slate-900 mb-2">Dashboard วิเคราะห์ข้อมูลร้านกาแฟ</h4>
+                        <p class="text-slate-600 mb-4 h-24">วิเคราะห์ข้อมูลยอดขายและสร้าง Dashboard ด้วย Power BI เพื่อแสดงข้อมูลเชิงลึก</p>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="font-medium text-blue-600 hover:underline">ดู Dashboard</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="education" class="section bg-white mt-6 p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-blue-600 border-b border-slate-200 pb-4 mb-8">
+                4. การศึกษา (Education)
+            </h2>
+            <div class="relative max-w-2xl ml-4">
+                <div class="absolute left-0 top-0 h-full w-0.5 bg-blue-600"></div>
+                <div class="relative pl-8 mb-10">
+                    <div class="absolute left-[-11px] top-1 w-6 h-6 bg-blue-600 rounded-full ring-8 ring-white"></div>
+                    <span class="block text-sm font-medium text-slate-500 mb-1">2566 - ปัจจุบัน</span>
+                    <h4 class="text-xl font-semibold text-slate-900">คณะวิทยาศาสตร์ สาขาวิทยาการคอมพิวเตอร์</h4>
+                    <p class="text-slate-600">มหาวิทยาลัยราชภัฏอุดรธานี</p>
+                </div>
+                <div class="relative pl-8">
+                    <div class="absolute left-[-11px] top-1 w-6 h-6 bg-slate-300 rounded-full ring-8 ring-white"></div>
+                    <span class="block text-sm font-medium text-slate-500 mb-1">2563 - 2566</span>
+                    <h4 class="text-xl font-semibold text-slate-900">มัธยมศึกษาตอนปลาย (ตัวอย่าง)</h4>
+                    <p class="text-slate-600">โรงเรียน... (ตัวอย่าง)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="activities" class="section bg-white mt-6 p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-blue-600 border-b border-slate-200 pb-4 mb-8">
+                5. กิจกรรมและผลงานอื่น ๆ (Activities)
+            </h2>
+            <div class="relative max-w-2xl ml-4">
+                <div class="absolute left-0 top-0 h-full w-0.5 bg-slate-300"></div>
+                <div class="relative pl-8 mb-10">
+                    <div class="absolute left-[-11px] top-1 w-6 h-6 bg-blue-600 rounded-full ring-8 ring-white"></div>
+                    <span class="block text-sm font-medium text-slate-500 mb-1">2025 (ตัวอย่าง)</span>
+                    <h4 class="text-xl font-semibold text-slate-900">เข้าร่วมแข่งขัน UDRU Hackathon 2025</h4>
+                    <p class="text-slate-600">ได้รับประสบการณ์การทำงานเป็นทีมและพัฒนาระบบ</p>
+                </div>
+                <div class="relative pl-8 mb-10">
+                    <div class="absolute left-[-11px] top-1 w-6 h-6 bg-blue-600 rounded-full ring-8 ring-white"></div>
+                    <span class="block text-sm font-medium text-slate-500 mb-1">2024 (ตัวอย่าง)</span>
+                    <h4 class="text-xl font-semibold text-slate-900">ได้รับรางวัลชนะเลิศโครงงานด้าน IoT</h4>
+                    <p class="text-slate-600">จากงานประกวดนวัตกรรม... (ตัวอย่าง)</p>
+                </div>
+                <div class="relative pl-8">
+                    <div class="absolute left-[-11px] top-1 w-6 h-6 bg-slate-300 rounded-full ring-8 ring-white"></div>
+                    <span class="block text-sm font-medium text-slate-500 mb-1">2024 (ตัวอย่าง)</span>
+                    <h4 class="text-xl font-semibold text-slate-900">ผู้เข้าร่วมอบรม "AI for Beginners by Microsoft"</h4>
+                    <p class="text-slate-600">เรียนรู้พื้นฐานการทำงานของ AI และ Machine Learning</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section bg-white mt-6 p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-blue-600 border-b border-slate-200 pb-4 mb-8">
+                6. ติดต่อ (Contact)
+            </h2>
+            <ul class="flex flex-wrap gap-x-8 gap-y-4">
+                <li class="font-medium text-lg"><a href="mailto:your.email@gmail.com" class="text-slate-700 hover:text-blue-600">Email: your.email@gmail.com</a></li>
+                <li class="font-medium text-lg"><a href="#" target="_blank" class="text-slate-700 hover:text-blue-600">GitHub: github.com/yourname</a></li>
+                <li class="font-medium text-lg"><a href="#" target="_blank" class="text-slate-700 hover:text-blue-600">LinkedIn: linkedin.com/in/yourname</a></li>
+                <li class="font-medium text-lg"><a href="#" target="_blank" class="text-slate-700 hover:text-blue-600">Facebook: fb.com/yourname</a></li>
+            </ul>
+        </section>
+
+        <section id="career" class="section bg-white mt-6 p-8 rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold text-blue-600 border-b border-slate-200 pb-4 mb-8">
+                7. เป้าหมายในอนาคต (Career Interest)
+            </h2>
+            <p class="text-xl text-slate-700">
+                ผมมุ่งหวังที่จะเป็น <strong class="text-blue-700">Software Engineer</strong> หรือ <strong class="text-blue-700">Data Scientist</strong> ที่สามารถสร้างสรรค์นวัตกรรมที่ช่วยแก้ปัญหาที่ซับซ้อน 
+                และสนใจเข้าร่วมงานกับองค์กรที่เปิดโอกาสให้เรียนรู้และเติบโต
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-12 mt-12 border-t border-slate-200">
+        <p class="text-slate-500">
+            &copy; 2025 สมชาย เก่งมาก. สร้างด้วย Tailwind CSS.
+        </p>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- 1. Typing Effect for Introduction ---
+            const typingTextElement = document.getElementById('typing-text');
+            if (typingTextElement) {
+                const interests = ['AI', 'Web Dev', 'Cybersecurity', 'Data Science'];
+                let interestIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+
+                function type() {
+                    const currentInterest = interests[interestIndex];
+                    let typeSpeed = 150;
+                    if (isDeleting) {
+                        typingTextElement.textContent = currentInterest.substring(0, charIndex - 1);
+                        charIndex--;
+                        typeSpeed = 75;
+                    } else {
+                        typingTextElement.textContent = currentInterest.substring(0, charIndex + 1);
+                        charIndex++;
+                    }
+                    if (!isDeleting && charIndex === currentInterest.length) {
+                        typeSpeed = 2000;
+                        isDeleting = true;
+                    } else if (isDeleting && charIndex === 0) {
+                        isDeleting = false;
+                        interestIndex = (interestIndex + 1) % interests.length;
+                        typeSpeed = 500;
+                    }
+                    setTimeout(type, typeSpeed);
+                }
+                type();
+            }
+
+            // --- 2. Hamburger Menu Toggle ---
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('nav-open');
+                    navToggle.classList.toggle('nav-open');
+                });
+
+                // ปิดเมนูเมื่อคลิกลิงก์
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('nav-open');
+                        navToggle.classList.remove('nav-open');
+                    });
+                });
+            }
+            
+            // --- 3. Highlight active nav link on scroll (IntersectionObserver) ---
+            const sections = document.querySelectorAll('.section');
+            const allNavLinks = document.querySelectorAll('.navbar a[href^="#"]');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        
+                        // ลบ active class (สีน้ำเงิน) ออกจากทุกลิงก์
+                        allNavLinks.forEach(link => {
+                            link.classList.remove('bg-blue-600', 'text-white');
+                            link.classList.add('text-slate-700');
+                        });
+                        
+                        // เพิ่ม active class (สีน้ำเงิน) ให้ลิงก์ที่ตรงกัน
+                        const activeLink = document.querySelector(`.navbar a[href="#${id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('bg-blue-600', 'text-white');
+                            activeLink.classList.remove('text-slate-700');
+                        }
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.5,
+                rootMargin: "-100px 0px -100px 0px" // ปรับระยะการตรวจจับ
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // --- 4. Smooth Scrolling (ปรับปรุงเล็กน้อย) ---
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if(targetElement) {
+                        const headerOffset = document.querySelector('header').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset - 20; // เพิ่มระยะห่าง 20px
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+        });
+    </script>
+
+</body>
 </html>
