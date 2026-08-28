@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="icon" type="image/emote.png" href="/images/emote.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body class="antialiased">
+
+    <nav id="header-nav" class="sticky top-0 z-50 w-full p-4">
+        <div class="flex items-center justify-between max-w-6xl mx-auto px-6 py-3 bg-slate-800/70 backdrop-blur-lg rounded-full border border-slate-700/50 shadow-lg">
+            <a href="#intro" class="flex-shrink-0">
+                <span class="font-bold text-xl text-white hidden sm:inline">Portfolio</span>
+                <span class="font-bold text-xl text-white sm:hidden">Portfolio</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-1">
+                <a href="#intro" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">แนะนำตัว</a>
+                <a href="#skills" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">ทักษะ</a>
+                <a href="#projects" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">ผลงาน</a>
+                <a href="#education" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">การศึกษา</a>
+                <a href="#activities" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">กิจกรรม</a>
+                <a href="#certificates" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">เกียรติบัตร</a>
+                <a href="#contact" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">ติดต่อ</a>
+                <a href="#career" class="nav-link text-slate-300 hover:text-white px-4 py-2 rounded-full transition-colors duration-200">เป้าหมาย</a>
+            </div>
+            <div class="md:hidden">
+                <button id="nav-toggle" class="text-white p-2 rounded-full hover:bg-slate-700" aria-label="Toggle navigation">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-menu"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 icon-close hidden"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+        </div>
+        <div id="navbar" class="hidden md:hidden max-w-6xl mx-auto mt-2 px-4 py-3 bg-slate-800/80 backdrop-blur-lg rounded-2xl border border-slate-700/50 shadow-lg">
+            <nav class="flex flex-col space-y-2">
+                <a href="#intro" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">แนะนำตัว</a>
+                <a href="#skills" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">ทักษะ</a>
+                <a href="#projects" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">ผลงาน</a>
+                <a href="#education" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">การศึกษา</a>
+                <a href="#activities" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">กิจกรรม</a>
+                <a href="#certificates" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">เกียรติบัตร</a>
+                <a href="#contact" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">ติดต่อ</a>
+                <a href="#career" class="nav-link text-slate-200 hover:text-white px-4 py-2 rounded-lg transition-colors duration-200">เป้าหมาย</a>
+            </nav>
+        </div>
+    </nav>
+    
+    <div class="container space-y-6">
+        
+        <section id="intro" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-12 h-[500px] flex items-center">
+            <div id="intro-box-container" class="flex items-center gap-6 md:gap-8 w-full">
+                <div class="profile-wrapper">
+                    <img src="image/pro.jpeg" 
+                         alt="รูปโปรไฟล์">
+                </div>
+                <div class="intro-content flex-grow">
+                    <h2 class="text-white !color-white">แนะนำตัว (Introduction)</h2>
+                    <p class="text-slate-300 text-lg mt-4">
+                        🖐️ สวัสดีครับ 
+                    </p>
+                     <p class="text-slate-300 text-lg mt-1">
+                        ผมชื่อนาย ปณิธิ จ่าเหม (ชื่อเล่น ท็อป) ปัจจุบันอาศัยอยู่ที่จังหวัด อุดรธานี
+                        จบการศึกษาจาก โรงเรียนกุดจับประชาสรรค์
+                    </p>
+                     <p class="text-slate-300 text-lg mt-1">
+                        และกำลังศึกษาต่อในระดับปริญญาตรี ชั้นปีที่ 3
+                        สาขา เทคโนโลยีสารสนเทศ มหาวิทยาลัยราชภัฏอุดรธานี (สามพร้าว)
+                    </p>
+                    <p class="text-slate-300 text-lg mt-1">
+                        สนใจทางด้าน:
+                        <span id="typing-text" class="font-bold text-cyan-400"></span>
+                    </p>
+                    <p class="text-slate-400 mt-2">
+                        ผมชื่นชอบการเรียนรู้สิ่งใหม่ ๆ อยู่เสมอ และเชื่อว่าการลงมือทำโปรเจกต์จริงคือวิธีที่ดีที่สุดในการพัฒนาแนวคิดและทักษะทางเทคโนโลยีพร้อมเปิดรับประสบการณ์ใหม่ ๆ และนำสิ่งที่ได้เรียนรู้ไปใช้ให้เกิดประโยชน์ในอนาคตครับ
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-8">
+            <h2 class="text-white">ทักษะ (Skills)</h2>
+            <div id="skills-container" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                </div>
+        </section>
+
+        <section id="projects" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-8">
+            <h2 class="text-white">ผลงานที่ผ่านมา (Projects)</h2>
+            <div id="project-grid" class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+        </section>
+
+        <section id="education" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-8">
+            <h2 class="text-white">การศึกษา (Education)</h2>
+            <div id="education-timeline" class="timeline">
+                </div>
+        </section>
+
+        <section id="activities" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-8">
+            <h2 class="text-white">กิจกรรม (Activities)</h2>
+            <div id="activities-grid" class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+        </section>
+
+        <section id="certificates" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-8">
+            <h2 class="text-white">เกียรติบัตร (Certificates)</h2>
+            <div id="certificate-grid" class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+        </section>
+
+        <section id="contact" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-8">
+            <h2 class="text-white">ติดต่อ (Contact)</h2>
+            <div id="contact-container" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                </div>
+        </section>
+        
+        <section id="career" class="section bg-slate-800/70 backdrop-blur-lg rounded-xl border border-slate-700/50 shadow-lg p-6 md:p-8">
+            <h2 class="text-white">เป้าหมายในอนาคต (Career Interest)</h2>
+            <p class="mt-6 text-lg text-slate-300">
+                มีเป้าหมายที่จะพัฒนาตนเองให้เป็นนักพัฒนาโปรแกรมที่มีความเชี่ยวชาญด้าน เว็บแอปพลิเคชัน และ เทคโนโลยีเกม
+มุ่งเน้นการสร้างสรรค์ พร้อมเรียนรู้เทคโนโลยีใหม่ ๆ อย่างต่อเนื่อง เพื่อก้าวสู่สายอาชีพด้าน Software Development ในอนาคต
+            </p>
+        </section>
+
+    </div>
+
+    <footer class="text-center p-8 mt-6 text-slate-400">
+        <p>&copy; 2025 Paniti Jahem</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
