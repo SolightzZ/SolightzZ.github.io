@@ -1,0 +1,6 @@
+# Robots.txt for Paniti Jahem Portfolio
+User-agent: *
+Allow: /
+
+# Sitemap Location
+Sitemap: https://solightzz.github.io/Portfolio/sitemap.xml

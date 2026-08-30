@@ -1,13 +1,110 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vite-project</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<html lang="th" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+       <!-- Content Security Policy (GitHub Pages cannot set HTTP headers; meta is the in-repo equivalent) -->
+       <meta
+          http-equiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; upgrade-insecure-requests" />
+
+       <!-- Primary Title & Author -->
+      <title>Portfolio — Paniti Jahem</title>
+      <meta name="author" content="Paniti Jahem (SolightzZ)" />
+      <meta
+         name="description"
+         content="พอร์ตโฟลิโอของ Paniti Jahem (ปณิธิ จะแร่ม) นักพัฒนาเว็บและระบบสารสนเทศระดับองค์กร (Full-Stack Developer) เชี่ยวชาญ React, TypeScript, Express.js, MySQL, Redis, Tailwind CSS และ Minecraft Bedrock Script API" />
+      <meta
+         name="keywords"
+         content="Paniti Jahem, ปณิธิ จะแร่ม, SolightzZ, Full-Stack Developer, Frontend Developer, Backend Developer, React Developer Thailand, TypeScript, Web Application, Enterprise Information Systems, Minecraft Bedrock Script API, UDRU, Portfolio" />
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <meta name="googlebot" content="index, follow" />
+      <link rel="canonical" href="https://solightzz.github.io/Portfolio/" />
+
+      <!-- UI / PWA Theme -->
+      <meta name="color-scheme" content="light" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+      <!-- Open Graph / Facebook / LinkedIn / Discord -->
+      <meta property="og:type" content="profile" />
+      <meta property="og:site_name" content="Portfolio" />
+      <meta property="og:title" content="Portfolio — Paniti Jahem" />
+      <meta property="og:description" content="พอร์ตโฟลิโอและผลงานการพัฒนาระบบเว็บแอปพลิเคชัน เครื่องมือสำหรับนักพัฒนา และระบบสารสนเทศระดับองค์กร โดย Paniti Jahem" />
+      <meta property="og:url" content="https://solightzz.github.io/Portfolio/" />
+      <meta property="og:image" content="https://solightzz.github.io/Portfolio/favicon.svg" />
+      <meta property="og:locale" content="th_TH" />
+      <meta property="og:locale:alternate" content="en_US" />
+
+      <!-- Profile Specific OG Data -->
+      <meta property="profile:first_name" content="Paniti" />
+      <meta property="profile:last_name" content="Jahem" />
+      <meta property="profile:username" content="SolightzZ" />
+      <meta property="profile:gender" content="male" />
+
+      <!-- Twitter / X -->
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content="Portfolio — Paniti Jahem" />
+      <meta name="twitter:description" content="Full-Stack Developer specializing in Modern Web Applications, Enterprise Information Systems, and Developer Tooling." />
+      <meta name="twitter:image" content="https://solightzz.github.io/Portfolio/favicon.svg" />
+      <meta name="twitter:creator" content="@SolightzZ" />
+
+      <!-- High-Performance Typography -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+      <!-- Structured Data (JSON-LD Schema.org) for Rich Google Search Snippets -->
+      <script type="application/ld+json">
+         {
+            "@context": "https://schema.org",
+            "@graph": [
+               {
+                  "@type": "Person",
+                  "@id": "https://solightzz.github.io/Portfolio/#person",
+                  "name": "Paniti Jahem",
+                  "alternateName": ["ปณิธิ จะแร่ม", "SolightzZ", "Paniti"],
+                  "jobTitle": "Full-Stack Developer",
+                  "description": "Full-Stack Developer specializing in Modern Web Applications, Enterprise Information Systems, and Developer Tooling.",
+                  "url": "https://solightzz.github.io/Portfolio/",
+                  "image": "https://solightzz.github.io/Portfolio/favicon.svg",
+                  "sameAs": ["https://github.com/SolightzZ", "mailto:paniti.jahem.work@gmail.com"],
+                  "alumniOf": {
+                     "@type": "EducationalOrganization",
+                     "name": "Udon Thani Rajabhat University (UDRU)"
+                  },
+                  "knowsAbout": [
+                     "React",
+                     "TypeScript",
+                     "Tailwind CSS",
+                     "Express.js",
+                     "MySQL",
+                     "Redis",
+                     "Knex.js",
+                     "JavaScript",
+                     "Node.js",
+                     "REST API",
+                     "Minecraft Bedrock Script API",
+                     "Full-Stack Web Development"
+                  ]
+               },
+               {
+                  "@type": "WebSite",
+                  "@id": "https://solightzz.github.io/Portfolio/#website",
+                  "url": "https://solightzz.github.io/Portfolio/",
+                  "name": "Portfolio",
+                  "description": "Official developer portfolio of Paniti Jahem showcasing software projects, experience, tech stack, and certifications.",
+                  "publisher": {
+                     "@id": "https://solightzz.github.io/Portfolio/#person"
+                  },
+                  "inLanguage": ["th", "en"]
+               }
+            ]
+         }
+      </script>
+   </head>
+   <body class="bg-[#F7FBFF] text-[#0F172A] font-sans antialiased selection:bg-[#BAE6FD] selection:text-[#0284C7] overflow-x-hidden">
+      <div id="root"></div>
+      <script type="module" src="/src/main.tsx"></script>
+   </body>
 </html>
