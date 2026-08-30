@@ -44,7 +44,7 @@ jobs:
 
       - name: Build site
         env:
-          BASE_PATH: /${{ github.event.repository.name }}/
+          BASE_PATH: /
         run: npm run build -- --base="$BASE_PATH"
 
       - name: Add SPA fallback (404.html mirrors index.html so client routes resolve on refresh)
