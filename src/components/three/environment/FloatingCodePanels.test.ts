@@ -66,7 +66,7 @@ describe('createTechBadge', () => {
       // Body box should have width=0.5, height=0.4, depth=0.1
       const body = badge.children.find((c) => c instanceof THREE.Mesh && c.geometry instanceof THREE.BoxGeometry) as THREE.Mesh | undefined;
       expect(body).toBeDefined();
-      const params = body!.geometry.parameters;
+      const params = (body!.geometry as THREE.BoxGeometry).parameters!;
       expect(params.width).toBeCloseTo(0.5, 5);
       expect(params.height).toBeCloseTo(0.4, 5);
       expect(params.depth).toBeCloseTo(0.1, 5);

@@ -36,7 +36,7 @@ describe('createBookshelfProp', () => {
       let smallBoxes = 0;
       group.traverse((child) => {
          if (child instanceof THREE.Mesh && child.geometry instanceof THREE.BoxGeometry) {
-            const params = child.geometry.parameters;
+             const params = (child.geometry as THREE.BoxGeometry).parameters;
             // Books have width around 0.035-0.045 and height 0.23-0.27
             if (params && params.width < 0.05 && params.height > 0.2 && params.height < 0.3) {
                smallBoxes++;
