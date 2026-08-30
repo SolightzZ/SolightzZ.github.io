@@ -81,28 +81,28 @@ const project = (
 ): ProjectItem => ({ id, slug: id, title, category, description, tags, githubUrl, featured, year: PROJECT_DATES[id], ...extra });
 
 export const PROJECTS_DATA: ProjectItem[] = [
-   project(
+project(
       'smart-farm',
       'Smart Farm',
       'FULL-STACK',
-       'ระบบเกษตรอัจฉริยะ (Smart Farm) ประกอบด้วยระบบจัดการส่วนหน้า (Frontend) และระบบจัดการส่วนหลัง (Backend)',
-       ['JavaScript', 'HTML / CSS'],
+       'ระบบเกษตรอัจฉริยะ (Smart Farm) หน้าจัดการ (Frontend) สำหรับผู้ดูแลฟาร์ม พัฒนาด้วย React + Vite แสดงข้อมูลเซ็นเซอร์ สถิติ และการจัดการฟาร์มผ่านกราฟและแดชบอร์ด',
+       ['React', 'Vite', 'Material UI (MUI)', 'Chart.js', 'React Router', 'SweetAlert2'],
       'https://github.com/SolightzZ/frontend_smart_farm',
       true,
       {
-         stats: 'Frontend + Backend',
+         stats: 'Frontend',
          image: '/projects/smart-farm.svg',
       },
    ),
-   project(
+project(
       'bookloop-socialmediamarketing',
       'Bookloop',
       'WEB APPLICATION',
        'แพลตฟอร์มซื้อ–ขายหนังสือมือสอง (BookLoop) พัฒนาด้วย React และ TypeScript พร้อมระบบตะกร้าสินค้าและ Wishlist',
-       ['React', 'TypeScript'],
+       ['React', 'TypeScript', 'Vite', 'Material UI (MUI)', 'Tailwind CSS', 'React Router', 'Express'],
       'https://github.com/SolightzZ/bookloop-socialmediamarketing',
       true,
-      { image: '/projects/bookloop-socialmediamarketing.svg' },
+      { demoUrl: 'https://solightzz.github.io/bookloop-socialmediamarketing/', stats: 'Live Demo', image: '/projects/bookloop-socialmediamarketing.svg' },
    ),
    project(
       'room-management-system',
@@ -182,10 +182,10 @@ export const PROJECTS_DATA: ProjectItem[] = [
       'bedrocknpm',
       'DEVELOPER TOOL',
       'ศูนย์รวมนักพัฒนา (Developer Hub) สำหรับชุมชนผู้สร้างสรรค์ส่วนเสริมเกม Minecraft Bedrock',
-      ['Minecraft Bedrock', 'JavaScript'],
+      ['Minecraft Bedrock', 'JavaScript', '@minecraft/server', 'npm'],
       'https://github.com/SolightzZ/bedrocknpm',
       true,
-      { image: '/projects/bedrocknpm.svg' },
+      { demoUrl: 'https://solightzz.github.io/bedrocknpm/', stats: 'Live Demo', image: '/projects/bedrocknpm.svg' },
    ),
    project(
       'unicode-bedrock',

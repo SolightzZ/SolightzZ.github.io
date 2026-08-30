@@ -24,6 +24,6 @@
     "noEmit": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["vitest/globals", "@testing-library/jest-dom"]
+    "types": []
   }
 }

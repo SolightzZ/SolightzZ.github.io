@@ -195,10 +195,11 @@ export const AboutPreview: React.FC = () => {
                         transition={{ duration: 0.45, delay: 0.1 + idx * 0.08, ease: EASE_SMOOTH }}
                         role="button"
                         tabIndex={0}
-                        onClick={() => setSelectedCert(cert)}
+onClick={() => { (document.activeElement as HTMLElement | null)?.blur(); setSelectedCert(cert); }}
                         onKeyDown={(e) => {
                            if (e.key === 'Enter' || e.key === ' ') {
                               e.preventDefault();
+                              (document.activeElement as HTMLElement | null)?.blur();
                               setSelectedCert(cert);
                            }
                         }}
